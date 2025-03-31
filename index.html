@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Vocacional</title>
+    <link rel="stylesheet" href="style/style.css"> <!-- Enlace al archivo CSS -->
+</head>
+<body>
+    <header>
+        <h1>Test Vocacional</h1>
+        <div class="dropdown">
+            
+            <button class="dropdown-toggle">
+                <img class="img-buttons" src="/resources/opciones.png" alt="Opciones" class="icon"> <!-- Icono del menú -->
+                <strong>Opciones</strong>
+            </button>
+            <div class="dropdown-menu">
+                <button id="restart-btn" onclick="location.reload();">
+                    <img class="img-buttons" src="/resources/reiniciar.png" alt="Reiniciar" class="icon"><strong class="dropdown-text">Reiniciar Test</strong> 
+                </button>
+                <button id="terms-btn">
+                    <img class="img-buttons" src="/resources/informacion.png" alt="Términos" class="icon"><strong class="dropdown-text">Términos y Condiciones</strong> 
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Contenedor de los botones de test -->
+    <div class="buttons-container">
+        <button class="test-button left-button" onclick="showTerms('test1')"><h2 class="text-main-botton">PREGRADO</h2><img class="img-main-button" src="/resources/pregrados.png" alt="Pregrado"></button>
+        <p class="text-art"><strong>Descubre tu vocación y da el primer paso hacia tu futuro</strong></p>
+        <button class="test-button right-button" onclick="showTerms('test2')"><h2 class="text-main-botton">POSGRADO</h2><img class="img-main-button" src="/resources/posgrados.png" alt="Pregrado"></button>
+    </div>
+    <!-- Formulario de recolección de datos -->
+    <main id="data-form-container" hidden>
+        <form id="data-form" onsubmit="return handleDataSubmission(event, onAccept)">
+            <label for="names">Nombre(s):</label>
+            <input type="text" id="names" name="names" autocomplete="given-name" required>
+        
+            <label for="lastnames">Apellido(s):</label>
+            <input type="text" id="lastnames" name="lastnames" autocomplete="family-name" required>
+        
+            <label for="document-type">Tipo de documento:</label>
+            <select id="document-type" name="document-type" autocomplete="off" required>
+                <option value="TI">T.I.</option>
+                <option value="CC">C.C.</option>
+                <option value="CE">C.E.</option>
+            </select>
+        
+            <label for="document-number">Número de documento:</label>
+            <input type="number" id="document-number" name="document-number" autocomplete="off" max="999999999999" required>
+        
+            <label for="phone">Celular:</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" pattern="[0-9]{10}" required>
+        
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+        
+            <label for="institution">Institución:</label>
+            <input type="text" id="institution" name="institution" autocomplete="organization" required>
+        
+            <label for="study-level">Nivel de estudio:</label>
+            <select id="study-level" name="study-level" autocomplete="off" required>
+                <option value="1">Básica</option>
+                <option value="2">Media</option>
+                <option value="3">Superior Pregrado</option>
+                <option value="4">Profesional Especialización</option>
+                <option value="5">Profesional Maestría</option>
+            </select>
+        
+            <label for="city">Ciudad:</label>
+            <input type="text" id="city" name="city" autocomplete="address-level2" required>
+        
+            <label for="age">Edad:</label>
+            <input type="number" id="age" name="age" autocomplete="off" required>
+        
+            <button type="submit">Enviar</button>
+        </form>
+    </main>
+    <div id="terms-popup" class="popup" hidden>
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <p id="terms-summary">
+                <h2>Verificación del concentimiento</h2>
+                <p>Las mediciones psicológicas necesitan la total autorizacióndel participante y el consentimientode los responsables, al continuar<strong>confirmas que eres mayor de edad (+18 años) o menor entre 13 y 17 añors con autorización de tu acudiente resposable... </strong>Del consentimiento informado que se encuentra en el siguiente enlace.</p> 
+                <span id="dots"><strong>Terminos y Condiciones</strong></span>
+                <span id="more" style="display:none;">
+                    TÉRMINOS Y CONDICIONES
+
+De conformidad con lo previsto en la ''Ley estatutaria 1581 de 2012'', y sus ''Decretos reglamentarios'' 1377 de 2013 y 1074 de 2015 capitulo 25, autorizo con consentimiento previo, expreso, informado, voluntario e inequívoco como Titular de mis datos a la CORPORACIÓN UNIFICADA NACIONAL DE EDUCACIÓN SUPERIOR - CUN para que realice el respectivo tratamiento de mis datos personales, respuestas de formulario, imágenes y/o vídeos, y en especial aquellos definidos como datos sensibles, para que sean incorporados en una base de datos responsabilidad de la Corporación y sean tratados con la finalidad académica, comercial, investigativa, científica, de proyección social, cultural, recreativa, deportiva, de interés general nacional e internacional, siendo publicados en redes sociales y otros medios de comunicación que utilice la Institución, para las actividades que se enmarquen dentro del objetivo social, académico e institucional, además, autorizo que mis datos personales sean transferidos a terceras entidades tanto nacionales como internacionales con las cuales se tengan convenios y cuya finalidad sea el intercambio de estudiantes, formación académica y profesional.
+
+De igual modo, declaro que no me encuentro obligado a autorizar el tratamiento de mis datos personales sensibles y que he sido informado que puedo ejercer los derechos de acceso, corrección, supresión, revocación o reclamo por infracción sobre mis datos mediante escrito dirigido a la CORPORACIÓN UNIFICADA NACIONAL DE EDUCACIÓN SUPERIOR - CUN en la dirección de correo electrónico basesdedatos@cun.edu.co indicando en el Asunto el derecho que deseo ejercer, o mediante correo ordinario remitido a la dirección 12B # 4 - 79 de la ciudad de Bogotá D.C. con base en la política de protección de datos, a la cual podré tener acceso en la página web http://www.cun.edu.co. El presente documento establece los Términos y Condiciones del consentimiento informado para la aplicación del Inventario de Perfil Vocacional, por lo que el usuario que realiza la aplicación del instrumento debe realizarlo de acuerdo con los acuerdos aquí señalados. Al acceder o utilizar el Inventario de Perfil Vocacional, el usuario acepta plenamente y sin reservas el acuerdo con los términos del consentimiento informado. Estos Términos consisten en un acuerdo de confidencialidad y colaboración entre el usuario y el Centro de Bits y Átomos de la CUN, CEBIAC, que abarca el acceso, uso, obtención de resultados y recolección de datos para fines investigativos. En caso de no estar de acuerdo con estos Términos y Condiciones es necesario abstenerse de utilizar la herramienta. Al hacer uso de esta prueba, usted confirma que comprende y está de acuerdo con:
+
+1. Confidencialidad: La información recogida por la herramienta se encuentra amparada por el código ético y deontológico del Colegio Colombiano de Psicólogos, el artículo 3 de la ley 1098 de 2006 y lo señalado en el artículo 2°, numeral 5° de la ley 1090 de 2006.
+
+2. Respeto a la propiedad intelectual: El Centro de Bits y Átomos de la CUN es propietario del derecho de autor de la prueba CUNbre de Emprendimiento. Esta premisa no se aplica a la información considerada como de dominio público o utilidad pública. El contenido al que puede acceder mediante el uso de la herramienta es confidencial. Su uso, edición y distribución está autorizado únicamente a colaboradores de la CUN o del Centro de Bits y Átomos de la CUN, CEBIAC. El contenido no deberá ser usado para propósitos distintos a los mencionados, alterado o copiado para su reproducción no autorizada, lo cual está expresamente prohibido. Cualquier violación a los lineamientos será investigada y dará lugar a las acciones legales necesarias.
+
+3. Restricciones de uso: El uso del Inventario de Perfil Vocacional está permitido solamente para personas mayores de (18) años, o menores entre 13 y 17 años con el debido consentimiento y autorización expresa de sus acudientes, padres o tutores remitidos previamente al correo electrónico de la Unidad de Emprendimiento de la CUN cunbre@cun.edu.co.
+
+Cualquier otra sugerencia, contacto o comentario al respecto de la prueba pueden ser remitidos al correo electrónico de la Unidad de Emprendimiento de la CUN cunbre@cun.edu.co o al final del cuestionario de la prueba en la pregunta de comentarios y sugerencias.
+                </span>
+            </p>
+            <button id="accept-terms-btn">Aceptar</button>
+        </div>
+    </div>
+
+    <script src="js/scripts.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+</body>
+</html>

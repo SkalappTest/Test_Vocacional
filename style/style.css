@@ -1,0 +1,304 @@
+/* Estilos globales */
+/* Estilo global */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-image: url('/resources/Fondo.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: rgb(5, 49, 107);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#0c3a7a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    -webkit-box-shadow: -1px -5px 54px -15px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px -5px 54px -15px rgba(0,0,0,0.75);
+    box-shadow: -1px -5px 54px -15px rgba(0,0,0,0.75);
+}
+
+main {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input, select, button {
+    margin-top: 5px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Ventana emergente */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1000;
+    padding: 20px;
+    text-align: center;
+}
+
+.popup-content {
+    position: relative;
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: red;
+    cursor: pointer;
+}
+
+.close-popup:hover {
+    color: darkred;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #04ff0c;
+}
+
+
+/* Estilo de los botones de test */
+.buttons-container {
+    position: relative;
+    display: flex;
+    height: calc(100% - 50px); /* Resta el alto del header */
+    width: 100%;
+}
+
+/* Configuración inicial del botón */
+.test-button {
+    flex: 1; /* Cada botón ocupa la mitad del ancho */
+    height: 100%; /* Ocupa todo el alto del contenedor */
+    border: none;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column; /* Coloca la imagen arriba y el texto abajo */
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Transición suave */
+    transform: scale(1); /* Asegura que los botones siempre estén al 100% */
+}
+
+.left-button {
+    position: absolute;
+    left: 0;
+    width: 49%;
+    background-color: #033c81; /* Azul */
+    background-position: left;
+}
+
+.right-button {
+    position: absolute;
+    right: 0;
+    width: 49%;
+    background-color: #074c88; /* Azul más oscuro */
+    background-position: right;
+}
+
+.text-main-botton{
+    
+    text-shadow: 5px 5px 8px #000;
+
+    border-radius: 15px; /* Radio del borde redondeado */
+    padding: 7px; /* Espacio interno */
+    display: inline-block; /* Para ajustar el tamaño del borde al contenido */
+    background-position: center;
+    position: absolute;
+    top: 10%; /* Pega el objeto al borde superior del contenedor */ 
+    color: white;
+}
+
+.img-main-button{
+    position: absolute;
+    bottom: 0;
+    height: 75%;
+    background-repeat: no-repeat;
+}
+/* Escala al pasar el cursor */
+.test-button:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+/* Control para evitar una escala mayor */
+.test-button:active {
+    transform: scale(1); /* Vuelve al 100% cuando se hace clic */
+}
+
+.text-art {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    text-align: center;
+}
+
+/*Botones*/
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    background-color: #00ff15;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.dropdown-toggle:hover {
+    background-color: #0842ac;
+}
+
+.dropdown-text{
+    font-size: 20px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0; /* Asegura que se alinee al lado derecho */
+    top: 100%;
+    background-color: #124a8a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1000;
+    overflow: hidden;
+    width: 200px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu button {
+    display: block;
+    width: 100%;
+    background-color: #144c8d;
+    border: none;
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu button:hover {
+    background-color: #0dff00;
+}
+
+.img-buttons {
+    height: 30px;
+}
+
+
+.test-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.test-container h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.test-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.test-container li {
+    margin: 10px 0;
+}
+
+.test-option {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.test-option:hover {
+    color: black;
+    background-color: #0dff00;
+}
